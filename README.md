@@ -13,8 +13,9 @@ In this project, I'll apply what you've learned on data warehouses and AWS to bu
 
 ## Project Datasets
 You'll be working with two datasets that reside in S3. Here are the S3 links for each:
-- Song data: [s3://udacity-dend/song_data](http://example.com)
-- Log data: [s3://udacity-dend/log_data](http://example.com)
+- Song data: [s3://udacity-dend/song_data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend?region=us-west-2&prefix=song-data/&showversions=false)
+- Log data: [s3://udacity-dend/log_data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend?region=us-west-2&prefix=log_data/&showversions=false)
+
 Log data json path: s3://udacity-dend/log_json_path.json
 
 ### Song Dataset
