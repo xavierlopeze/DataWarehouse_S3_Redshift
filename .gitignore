@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/aws.xml
+*.xml
+.idea/DataWarehouse_S3_Redshift.iml
