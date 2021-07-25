@@ -48,16 +48,16 @@ Using the song and event datasets, I'll need to create a star schema optimized f
 
 #### Fact Table 
 1. **songplays** - records in event data associated with song plays i.e. records with page *NextSong*
- - *songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent*
+     - *songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent*
 
 #### Dimension Tables
 2. **users** - songs in music database 
- - *song_id, title_artist_id, year, duration*
+     - *song_id, title_artist_id, year, duration*
 3. **songs** - songs in music database
- - *song_id, title, artist_id, year, duration*
+     - *song_id, title, artist_id, year, duration*
 4. **artists** - artists in music database
- - *artist_id, name location, lattitude, longitude*
+     - *artist_id, name location, lattitude, longitude*
 5. **time** - timestamp of records in **songplays** broken down into specifics units
- - *start_time, hour, day, week, month, year, weekday*
+     - *start_time, hour, day, week, month, year, weekday*
 
 
