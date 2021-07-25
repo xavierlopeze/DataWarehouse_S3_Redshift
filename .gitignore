@@ -130,3 +130,15 @@ dmypy.json
 .idea/aws.xml
 *.xml
 .idea/DataWarehouse_S3_Redshift.iml
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/padb_harvest.WTVerQ/schema/public.abK9xQ.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/padb_harvest.WTVerQ.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA/schema/public.abK9xQ.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA/schema/pg_internal.BbD_lA.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA/schema/pg_catalog.0S1ZNQ.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA/schema/nodist.51IAwg.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA/schema/information_schema.FNRwLQ.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA/schema/dist.pg0vAA.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA/schema/catalog_history.bsI9eg.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dwh.NYYBAA.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dev.FYQBAA/schema/public.abK9xQ.meta
+.idea/dataSources/63014619-c014-4c95-93c4-770a5316e389/storage_v2/_src_/database/dev.FYQBAA.meta
