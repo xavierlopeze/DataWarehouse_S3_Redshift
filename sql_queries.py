@@ -116,26 +116,96 @@ time_table_create = ("""
 # STAGING TABLES
 
 staging_events_copy = ("""
-""").format()
+    COPY staging_events
+    FROM {}
+    IAM_ROLE {}
+    JSON {};
+""").format(config.get('S3', 'LOG_DATA'), config.get('IAM_ROLE', 'ARN'), config.get('S3', 'LOG_JSONPATH'))
 
 staging_songs_copy = ("""
-""").format()
+    COPY staging_songs
+    FROM {}
+    IAM_ROLE {}
+    FORMAT AS JSON 'auto';
+""").format(config.get('S3', 'SONG_DATA'), config.get('IAM_ROLE', 'ARN'))
 
 # FINAL TABLES
 
 songplay_table_insert = ("""
+    INSERT INTO songplays (start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
+        SELECT TIMESTAMP 'epoch' + (ts / 1000) * INTERVAL '1 Second ' as start_time,
+               user_id,
+               level,
+               song_id,
+               artist_id,
+               session_id,
+               location,
+               user_agent
+        FROM staging_events e
+        JOIN staging_songs s
+            ON (e.song = s.title
+            AND e.artist = s.artist_name
+            AND e.length = s.duration)
+        WHERE user_id IS NOT NULL
+            AND level IS NOT NULL
+            AND song_id IS NOT NULL
+            AND session_id IS NOT NULL
+            AND location IS NOT NULL
+            AND user_agent IS NOT NULL;
 """)
 
 user_table_insert = ("""
+    INSERT INTO users (user_id, first_name, last_name, gender, level)
+    SELECT DISTINCT
+        user_id,
+        first_name,
+        last_name,
+        gender,
+        level
+    FROM staging_events
+    WHERE page = 'NextSong'
+        AND user_id IS NOT NULL
+        AND first_name IS NOT NULL
+        AND last_name IS NOT NULL
+        AND gender IS NOT NULL
+        AND level IS NOT NULL;
 """)
 
+
 song_table_insert = ("""
+    INSERT INTO songs (song_id, title, artist_id, year, duration)
+    SELECT DISTINCT
+        song_id,
+        title,
+        artist_id,
+        year,
+        duration
+    FROM staging_songs
+    WHERE song_id IS NOT NULL;
 """)
 
 artist_table_insert = ("""
+    INSERT INTO artists (artist_id, name, location, latitude, longitude)
+    SELECT DISTINCT
+        artist_id,
+        artist_name,
+        artist_location,
+        artist_latitude,
+        artist_longitude
+    FROM staging_songs
+    WHERE artist_id IS NOT NULL;
 """)
 
 time_table_insert = ("""
+    INSERT INTO time(start_time, hour, day, week, month, year, weekDay)
+    SELECT start_time,
+        extract(hour from start_time),
+        extract(day from start_time),
+        extract(week from start_time),
+        extract(month from start_time),
+        extract(year from start_time),
+        extract(dayofweek from start_time)
+    FROM songplays;
 """)
 
 # QUERY LISTS
